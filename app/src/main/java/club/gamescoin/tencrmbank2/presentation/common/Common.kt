@@ -112,8 +112,12 @@ fun CustomTopBar(
     ) {
         if (showIcon) {
             Icon(imageVector = icon, contentDescription = null, modifier = Modifier.clickable {
-                onClick.invoke()
-            }, tint = iconTint)
+                if (showIcon){
+                    onClick.invoke()
+                }else{
+                    println("Nothing")
+                }
+            }.padding(10.dp), tint = iconTint)
             Spacer(modifier = Modifier.weight(1f))
             Text(
                 text = text, maxLines = 1, style = TextStyle(
